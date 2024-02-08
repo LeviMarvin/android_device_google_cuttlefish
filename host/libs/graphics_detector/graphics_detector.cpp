@@ -67,6 +67,17 @@ GraphicsAvailability GetGraphicsAvailabilityWithSubprocessCheck() {
   return availability;
 }
 
+// Runs various graphics tests inside of the Cuttlefish launcher process.
+// Running tests inside subprocesses may case problems and we do NOT need
+// run Cuttlefish on a cloud platform instance such as GCE instance.
+GraphicsAvailability GetGraphicsAvailabilityInSelfProcess() {
+  GraphicsAvailability availability;
+  PopulateEglAndGlesAvailabilityNew(&availability);
+  PopulateVulkanAvailabilityNew(&availability);
+  PopulateVulkanPrecisionQualifiersOnYuvSamplersQuirk(&availability);
+  return availability;
+}
+
 std::ostream& operator<<(std::ostream& stream,
                          const GraphicsAvailability& availability) {
   std::ios_base::fmtflags flags_backup(stream.flags());

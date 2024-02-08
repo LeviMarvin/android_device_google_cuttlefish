@@ -68,4 +68,8 @@ void PopulateVulkanAvailability(GraphicsAvailability* availability) {
   });
 }
 
+void PopulateVulkanAvailabilityNew(GraphicsAvailability* availability) {
+  PopulateVulkanAvailabilityImpl(availability);
+}
+
 }  // namespace cuttlefish

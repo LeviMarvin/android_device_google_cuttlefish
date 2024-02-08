@@ -802,8 +802,13 @@ Result<CuttlefishConfig> InitializeCuttlefishConfiguration(
   }
   tmp_config_obj.set_vm_manager(vm_manager_vec[0]);
 
-  const GraphicsAvailability graphics_availability =
+  const GraphicsAvailability graphics_availability_old =
     GetGraphicsAvailabilityWithSubprocessCheck();
+
+  LOG(VERBOSE) << graphics_availability_old;
+
+  const GraphicsAvailability graphics_availability =
+    GetGraphicsAvailabilityInSelfProcess();
 
   LOG(DEBUG) << graphics_availability;
 

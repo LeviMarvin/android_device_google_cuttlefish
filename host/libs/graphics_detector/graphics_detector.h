@@ -53,6 +53,7 @@ struct GraphicsAvailability {
 
 bool ShouldEnableAcceleratedRendering(const GraphicsAvailability& availability);
 GraphicsAvailability GetGraphicsAvailabilityWithSubprocessCheck();
+GraphicsAvailability GetGraphicsAvailabilityInSelfProcess();
 
 std::ostream& operator<<(std::ostream& out, const GraphicsAvailability& info);
 

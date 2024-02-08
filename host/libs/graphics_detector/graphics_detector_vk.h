@@ -20,5 +20,6 @@
 namespace cuttlefish {
 
 void PopulateVulkanAvailability(GraphicsAvailability* availability);
+void PopulateVulkanAvailabilityNew(GraphicsAvailability* availability);
 
 }  // namespace cuttlefish

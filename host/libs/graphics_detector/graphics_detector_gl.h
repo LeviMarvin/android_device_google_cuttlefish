@@ -20,5 +20,6 @@
 namespace cuttlefish {
 
 void PopulateEglAndGlesAvailability(GraphicsAvailability* availability);
+void PopulateEglAndGlesAvailabilityNew(GraphicsAvailability* availability);
 
 }  // namespace cuttlefish

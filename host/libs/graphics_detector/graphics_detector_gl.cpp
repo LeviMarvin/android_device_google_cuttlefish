@@ -206,6 +206,7 @@ void PopulateEglAndGlesAvailabilityImpl(GraphicsAvailability* availability) {
     const std::string gles2_extensions_string((const char*)gles2_extensions);
     LOG(VERBOSE) << "Found GLES2 extensions: " << gles2_extensions_string;
     availability->gles2_extensions = gles2_extensions_string;
+    availability->has_gles2 = true;
   }
 
   const EGLint gles3_context_attributes[] = {EGL_CONTEXT_CLIENT_VERSION, 3,
@@ -268,6 +269,7 @@ void PopulateEglAndGlesAvailabilityImpl(GraphicsAvailability* availability) {
     const std::string gles3_extensions_string((const char*)gles3_extensions);
     LOG(VERBOSE) << "Found GLES3 extensions: " << gles3_extensions_string;
     availability->gles3_extensions = gles3_extensions_string;
+    availability->has_gles3 = true;
   }
 }
 
@@ -277,6 +279,10 @@ void PopulateEglAndGlesAvailability(GraphicsAvailability* availability) {
   DoWithSubprocessCheck("PopulateEglAndGlesAvailability", [&]() {
     PopulateEglAndGlesAvailabilityImpl(availability);
   });
+}
+
+void PopulateEglAndGlesAvailabilityNew(GraphicsAvailability* availability) {
+  PopulateEglAndGlesAvailabilityImpl(availability);
 }
 
 }  // namespace cuttlefish
